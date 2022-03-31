@@ -5,34 +5,30 @@ import TabsPage from '../views/TabsPage.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/Mes Commandes'
+    redirect: '/tabs/MesCommandes'
+  },
+  {
+    path: '/tabs/',
+    component: TabsPage,
+    children: [
+      {
+        path: '',
+        redirect: '/tabs/MesCommandes'
+      },
+      {
+        path: 'MesCommandes',
+        component: () => import('@/views/Tab1Page.vue')
+      },
+      {
+        path: 'Commentaires',
+        component: () => import('@/views/Tab2Page.vue')
+      },
+      {
+        path: 'tab3',
+        component: () => import('@/views/Tab3Page.vue')
+      }
+    ]
   }
-  // {
-  //   path: '/tabs/',
-  //   component: TabsPage,
-  //   children: [
-  //     {
-  //       path: '',
-  //       redirect: '/tabs/Mes Commandes'
-  //     },
-  //     // {
-  //     //   path: 'tab1',
-  //     //   component: () => import('@/views/Tab1Page.vue')
-  //     // },
-  //     // {
-  //     //   path: 'tab2',
-  //     //   component: () => import('@/views/Tab2Page.vue')
-  //     // },
-  //     {
-  //       path: 'Mes Commandes',
-  //       component: () => import('@/views/Tab3Page.vue')
-  //     },
-  //     {
-  //       path: 'Commentaire',
-  //       component: () => import('@/views/Tab4Page.vue')
-  //     }
-  //   ]
-  // }
 ]
 
 const router = createRouter({

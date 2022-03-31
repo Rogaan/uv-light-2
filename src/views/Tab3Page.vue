@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
       
-      <ExploreContainer name="Mes Commandes" />
+      <ExploreContainer name="MesCommandes"/>
     </ion-content>
   </ion-page>
 </template>
