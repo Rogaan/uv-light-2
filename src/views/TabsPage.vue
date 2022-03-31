@@ -4,7 +4,7 @@
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon :icon="triangle" />
+          <ion-icon :icon="square" />
           <ion-label>Tab 1</ion-label>
         </ion-tab-button>
           
