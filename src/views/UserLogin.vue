@@ -14,22 +14,24 @@
           
         </ion-toolbar>
       </ion-header>
+       
+      <form @submit.prevent="log()">
+
+      <ion-title id="title">Connexion</ion-title>
+
       <ion-item id="input_login">
           <ion-label position="floating">Login</ion-label>
           <ion-input v-model="login"/>
-    </ion-item>
+      </ion-item>
           
       <ion-item id="input_mdp">
           <ion-label position="floating">Mot de passe</ion-label>
           <ion-input  v-model="mdp"/>
       </ion-item>
-
-      <ion-button id="bouton_connexion" color="success" @click="RecupInput">Connexion</ion-button>
-
       
-      <!-- TEST -->
-      
-      <!-- FIN DE TEST -->
+      <ion-button type='submit' id="bouton_connexion" color="success">Connexion</ion-button>
+      </form>
+
     </ion-content>
   </ion-page>
   
@@ -37,9 +39,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonLabel, IonInput, IonItem, IonButton  } from '@ionic/vue';
+import axios from "axios";
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonLabel, IonInput, IonItem, IonButton, toastController  } from '@ionic/vue';
 
-//import ExploreContainer from '@/components/ExploreContainer.vue';
+
 export default  defineComponent({
   data() {
     return {
@@ -47,11 +50,33 @@ export default  defineComponent({
       mdp: ""
     }
   },
-  name: 'Login1User',
+  name: 'UserLogin',
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonLabel, IonInput, IonItem, IonButton },
   methods: { 
-    RecupInput() {
-      alert(this.login + " - " + this.mdp)
+    // RecupInput() {
+    //   alert(this.login + " - " + this.mdp)
+    // },
+    log() {
+      axios
+        .get(
+          'http://localhost/api/produits.php?login='+this.login+'&password='+this.mdp
+        )
+        .then((response) => {
+          if (response.status == 200) {
+            window.location.href = "/tabs/MesCommandes";
+            console.log(response);
+          }
+        })
+        .catch((error) => {
+          this.openToast();
+        });
+    },
+    async openToast() {
+      const toast = await toastController.create({
+        message: "Mauvais identifiants de connexion, veuillez réessayer.",
+        duration: 5000,
+      });
+      return toast.present();
     },
   },
 });
@@ -75,6 +100,13 @@ export default  defineComponent({
   #input_login{
     width: 70%;
     margin : auto;
-    margin-top: 200px;
+    margin-top: 20px;
+  }
+
+  #title{
+    width: 70%;
+    margin : auto;
+    margin-top: 300px;
+    text-align: center;
   }
 </style>

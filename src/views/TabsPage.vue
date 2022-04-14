@@ -3,11 +3,6 @@
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
-
-        <ion-tab-button tab="tab1" href="/tabs/Page de Connexion">
-          <ion-icon :icon="bodyOutline" />
-          <ion-label>Page de Connexion</ion-label>
-        </ion-tab-button>
         
         <ion-tab-button tab="tab2" href="/tabs/MesCommandes">
           <ion-icon :icon="albumsOutline" />
