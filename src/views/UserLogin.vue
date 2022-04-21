@@ -15,7 +15,7 @@
         </ion-toolbar>
       </ion-header>
        
-      <form @submit.prevent="log()">
+      <form id="form" @submit.prevent="log()">
 
       <ion-title id="title">Connexion</ion-title>
 
@@ -84,6 +84,7 @@ export default  defineComponent({
 </script>
 <!-- STYLE UNIQUEMENT POUR CETTE PAGE -->
 <style scoped>
+
   #bouton_connexion {
     display: block;
     margin : auto;

@@ -9,10 +9,10 @@
           <ion-label>Mes Commandes</ion-label>
         </ion-tab-button>
           
-        <ion-tab-button tab="tab3" href="/tabs/Commentaires">
+        <!-- <ion-tab-button tab="tab3" href="/tabs/Commentaires">
           <ion-icon :icon="chatboxEllipsesOutline" />
           <ion-label>Commentaires</ion-label>
-        </ion-tab-button>
+        </ion-tab-button> -->
         
         <!-- <ion-tab-button tab="tab3" href="/tabs/tab3">
           <ion-icon :icon="square" />

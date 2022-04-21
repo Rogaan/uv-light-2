@@ -18,11 +18,11 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'MesCommandes',
         component: () => import('@/views/Tab2Page.vue')
-      },
-      {
-        path: 'Commentaires',
-        component: () => import('@/views/Tab3Page.vue')
       }
+      // {
+      //   path: 'Commentaires',
+      //   component: () => import('@/views/Tab3Page.vue')
+      // }
     ]
   }
 ]
